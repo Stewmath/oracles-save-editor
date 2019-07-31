@@ -1,0 +1,246 @@
+<section name="Main">
+  <item>
+    <name>Game ID</name>
+    <addr>0xc600</addr>
+    <datatype>Word</datatype>
+    <max>0x7fff</max>
+  </item>
+  <item>
+    <name>Name</name>
+    <addr>0xc602</addr>
+    <datatype>String</datatype>
+    <length>5</length>
+  </item>
+  <!-- c608: Dummy value, shouldn't be modified -->
+  <item>
+    <name>Child name</name>
+    <addr>0xc609</addr>
+    <datatype>String</datatype>
+    <length>5</length>
+  </item>
+  <item>
+    <name>Child status</name>
+    <addr>0xc60f</addr>
+    <datatype>Byte</datatype>
+    <hint>Affects the child's development.</hint>
+    <link>https://wiki.zeldahacking.net/oracle/Bipin_and_Blossom%27s_son</link>
+  </item>
+  <item>
+    <name>Animal Companion</name>
+    <addr>0xc610</addr>
+    <datatype>Byte</datatype>
+    <!--
+    <type>dropdown</type>
+    <dropdown>
+      <option>
+        <name>None</name>
+        <value>0x00</value>
+      </option>
+      <option>
+        <name>Ricky</value>
+        <value>0x0b</value>
+      </option>
+      <option>
+        <name>Dimitri</value>
+        <value>0x0c</value>
+      </option>
+      <option>
+        <name>Moosh</value>
+        <value>0x0d</value>
+      </option>
+    </dropdown>
+    -->
+    <hint>Sets companion, but not the flute's icon.</hint>
+  </item>
+  <!-- c611: wWhichGame; pointless to edit. -->
+  <item>
+    <name>Linked Game</name>
+    <addr>0xc612</addr>
+    <datatype>Bool</datatype>
+  </item>
+  <item>
+    <name>Hero's Game</name>
+    <addr>0xc613</addr>
+    <datatype>Bool</datatype>
+  </item>
+  <item>
+    <name>Completed Game</name>
+    <addr>0xc614</addr>
+    <datatype>Bool</datatype>
+  </item>
+  <item>
+    <name>Obtained Ring Box from Vasu</name>
+    <addr>0xc615</addr>
+    <datatype>Bool</datatype>
+    <hint>Only used for password/linking purposes. There's also a global flag for this.</hint>
+  </item>
+  <!-- c616: Rings obtained. -->
+  <item>
+    <name>Death Counter</name>
+    <addr>0xc61e</addr>
+    <datatype>Word BCD</datatype>
+    <max>999</max>
+  </item>
+  <item>
+    <name>Enemies Slain</name>
+    <addr>0xc620</addr>
+    <datatype>Word</datatype>
+  </item>
+  <!-- c622: Playtime (TODO) -->
+  <item>
+    <name>Signs Destroyed</name>
+    <addr>0xc626</addr>
+    <datatype>Byte</datatype>
+  </item>
+  <item>
+    <name>Total Rupees Collected</name>
+    <addr>0xc627</addr>
+    <datatype>Word</datatype>
+  </item>
+  <item>
+    <name>Text Speed</name>
+    <addr>0xc629</addr>
+    <datatype>Byte</datatype>
+    <max>4</max>
+  </item>
+  <item>
+    <name>Language</name>
+    <addr>0xc62a</addr>
+    <datatype>Byte</datatype>
+  </item>
+
+  <!-- New section -->
+
+  <item>
+    <name>Saved Group</name>
+    <addr>0xc62b</addr>
+    <datatype>Byte</datatype> <!-- TODO: game-specific hints -->
+  </item>
+  <item>
+    <name>Saved Room</name>
+    <addr>0xc62c</addr>
+    <datatype>Byte</datatype>
+  </item>
+  <item>
+    <name>Saved Season</name>
+    <addr>0xc62d</addr>
+    <datatype>Byte</datatype>
+    <hint>This can have an effect in Ages, particularly in jabu-jabu?</hint>
+  </item>
+  <item>
+    <name>Saved Facing Direction</name>
+    <addr>0xc62e</addr>
+    <datatype>Byte</datatype> <!-- TODO: combobox -->
+  </item>
+  <item>
+    <name>Saved Y-position</name>
+    <addr>0xc62f</addr>
+    <datatype>Byte</datatype>
+  </item>
+  <item>
+    <name>Saved X-position</name>
+    <addr>0xc630</addr>
+    <datatype>Byte</datatype>
+  </item>
+  <item>
+    <name>Saved Companion ID</name>
+    <addr>0xc631</addr>
+    <datatype>Byte</datatype> <!-- TODO: combobox -->
+  </item>
+  <item>
+    <name>Saved Companion Group</name>
+    <addr>0xc632</addr>
+    <datatype>Byte</datatype>
+  </item>
+  <item>
+    <name>Saved Companion Room</name>
+    <addr>0xc633</addr>
+    <datatype>Byte</datatype>
+  </item>
+  <!-- c634: Link object index (never actually read) -->
+  <item>
+    <name>C635 (unused?)</name>
+    <addr>0xc635</addr>
+    <datatype>Byte</datatype>
+  </item>
+  <item>
+    <name>Saved Companion Y-position</name>
+    <addr>0xc636</addr>
+    <datatype>Byte</datatype>
+  </item>
+  <item>
+    <name>Saved Companion X-position</name>
+    <addr>0xc637</addr>
+    <datatype>Byte</datatype>
+  </item>
+
+  <!-- New section -->
+
+  <item>
+    <name>Last mounted companion Y-position</name>
+    <addr>0xc638</addr>
+    <datatype>Byte</datatype>
+    <hint>Affects a certain glitch, and not much else.</hint>
+  </item>
+  <item>
+    <name>Last mounted companion X-position</name>
+    <addr>0xc639</addr>
+    <datatype>Byte</datatype>
+    <hint>Affects a certain glitch, and not much else.</hint>
+  </item>
+  <item>
+    <name>Minimap Group</name>
+    <addr>0xc63a</addr>
+    <datatype>Byte</datatype>
+  </item>
+  <item>
+    <name>Minimap Room</name>
+    <addr>0xc63b</addr>
+    <datatype>Byte</datatype>
+  </item>
+  <item>
+    <name>Minimap Dungeon Map Position</name>
+    <addr>0xc63c</addr>
+    <datatype>Byte</datatype>
+  </item>
+  <item>
+    <name>Minimap Dungeon Floor</name>
+    <addr>0xc63d</addr>
+    <datatype>Byte</datatype>
+  </item>
+
+  <item>
+    <name>Time Portal Group</name>
+    <agesaddr>0xc63e</agesaddr>
+    <datatype>Byte</datatype>
+  </item>
+  <item>
+    <name>Time Portal Room</name>
+    <agesaddr>0xc63f</agesaddr>
+    <datatype>Byte</datatype>
+  </item>
+  <item>
+    <name>Time Portal Y</name>
+    <agesaddr>0xc640</agesaddr>
+    <datatype>Bits</datatype>
+    <firstbit>4</firstbit>
+    <lastbit>7</lastbit>
+    <hint>Position is measured in tiles, not pixels.</hint>
+  </item>
+  <item>
+    <name>Time Portal X</name>
+    <agesaddr>0xc640</agesaddr>
+    <datatype>Bits</datatype>
+    <firstbit>0</firstbit>
+    <lastbit>3</lastbit>
+    <hint>Position is measured in tiles, not pixels.</hint>
+  </item>
+
+  <item>
+    <name>Maple Kill Counter</name>
+    <agesaddr>0xc641</agesaddr>
+    <ssnsaddr>0xc63e</ssnsaddr>
+    <datatype>Byte</datatype>
+    <hint>Maple spawns when this reaches 30 (or 15 with maple's ring).</hint>
+  </item>
+</section>

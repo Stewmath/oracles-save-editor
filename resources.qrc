@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/data">
+        <file alias="ages.xml">resources/data/ages.xml</file>
+    </qresource>
+</RCC>
