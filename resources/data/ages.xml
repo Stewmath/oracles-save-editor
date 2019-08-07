@@ -1,246 +1,2165 @@
-<section name="Main">
-  <item>
-    <name>Game ID</name>
-    <addr>0xc600</addr>
-    <datatype>Word</datatype>
-    <max>0x7fff</max>
-  </item>
-  <item>
-    <name>Name</name>
-    <addr>0xc602</addr>
-    <datatype>String</datatype>
-    <length>5</length>
-  </item>
-  <!-- c608: Dummy value, shouldn't be modified -->
-  <item>
-    <name>Child name</name>
-    <addr>0xc609</addr>
-    <datatype>String</datatype>
-    <length>5</length>
-  </item>
-  <item>
-    <name>Child status</name>
-    <addr>0xc60f</addr>
-    <datatype>Byte</datatype>
-    <hint>Affects the child's development.</hint>
-    <link>https://wiki.zeldahacking.net/oracle/Bipin_and_Blossom%27s_son</link>
-  </item>
-  <item>
-    <name>Animal Companion</name>
-    <addr>0xc610</addr>
-    <datatype>Byte</datatype>
-    <!--
-    <type>dropdown</type>
-    <dropdown>
-      <option>
-        <name>None</name>
-        <value>0x00</value>
-      </option>
-      <option>
-        <name>Ricky</value>
-        <value>0x0b</value>
-      </option>
-      <option>
-        <name>Dimitri</value>
-        <value>0x0c</value>
-      </option>
-      <option>
-        <name>Moosh</value>
-        <value>0x0d</value>
-      </option>
-    </dropdown>
-    -->
-    <hint>Sets companion, but not the flute's icon.</hint>
-  </item>
-  <!-- c611: wWhichGame; pointless to edit. -->
-  <item>
-    <name>Linked Game</name>
-    <addr>0xc612</addr>
-    <datatype>Bool</datatype>
-  </item>
-  <item>
-    <name>Hero's Game</name>
-    <addr>0xc613</addr>
-    <datatype>Bool</datatype>
-  </item>
-  <item>
-    <name>Completed Game</name>
-    <addr>0xc614</addr>
-    <datatype>Bool</datatype>
-  </item>
-  <item>
-    <name>Obtained Ring Box from Vasu</name>
-    <addr>0xc615</addr>
-    <datatype>Bool</datatype>
-    <hint>Only used for password/linking purposes. There's also a global flag for this.</hint>
-  </item>
-  <!-- c616: Rings obtained. -->
-  <item>
-    <name>Death Counter</name>
-    <addr>0xc61e</addr>
-    <datatype>Word BCD</datatype>
-    <max>999</max>
-  </item>
-  <item>
-    <name>Enemies Slain</name>
-    <addr>0xc620</addr>
-    <datatype>Word</datatype>
-  </item>
-  <!-- c622: Playtime (TODO) -->
-  <item>
-    <name>Signs Destroyed</name>
-    <addr>0xc626</addr>
-    <datatype>Byte</datatype>
-  </item>
-  <item>
-    <name>Total Rupees Collected</name>
-    <addr>0xc627</addr>
-    <datatype>Word</datatype>
-  </item>
-  <item>
-    <name>Text Speed</name>
-    <addr>0xc629</addr>
-    <datatype>Byte</datatype>
-    <max>4</max>
-  </item>
-  <item>
-    <name>Language</name>
-    <addr>0xc62a</addr>
-    <datatype>Byte</datatype>
-  </item>
+<all>
+  <section name="Main">
+    <item>
+      <name>Game ID</name>
+      <addr>0xc600</addr>
+      <datatype>Word</datatype>
+      <max>0x7fff</max>
+    </item>
+    <item>
+      <name>Name</name>
+      <addr>0xc602</addr>
+      <datatype>String</datatype>
+      <length>5</length>
+    </item>
+    <!-- c608: Dummy value, shouldn't be modified -->
+    <item>
+      <name>Child name</name>
+      <addr>0xc609</addr>
+      <datatype>String</datatype>
+      <length>5</length>
+    </item>
+    <item>
+      <name>Child status</name>
+      <addr>0xc60f</addr>
+      <datatype>Byte</datatype>
+      <hint>Affects the child's development.</hint>
+      <link>https://wiki.zeldahacking.net/oracle/Bipin_and_Blossom%27s_son</link>
+    </item>
+    <item>
+      <name>Animal Companion</name>
+      <addr>0xc610</addr>
+      <datatype>Byte</datatype>
+      <!--
+      <type>dropdown</type>
+      <dropdown>
+        <option>
+          <name>None</name>
+          <value>0x00</value>
+        </option>
+        <option>
+          <name>Ricky</value>
+          <value>0x0b</value>
+        </option>
+        <option>
+          <name>Dimitri</value>
+          <value>0x0c</value>
+        </option>
+        <option>
+          <name>Moosh</value>
+          <value>0x0d</value>
+        </option>
+      </dropdown>
+      -->
+      <hint>Sets companion, but not the flute's icon.</hint>
+    </item>
+    <!-- c611: wWhichGame; pointless to edit. -->
+    <item>
+      <name>Linked Game</name>
+      <addr>0xc612</addr>
+      <datatype>Bit</datatype>
+      <firstbit>0</firstbit>
+    </item>
+    <item>
+      <name>Hero's Game</name>
+      <addr>0xc613</addr>
+      <datatype>Bit</datatype>
+      <firstbit>0</firstbit>
+    </item>
+    <item>
+      <name>Completed Game</name>
+      <addr>0xc614</addr>
+      <datatype>Bit</datatype>
+      <firstbit>0</firstbit>
+    </item>
+    <item>
+      <name>Obtained Ring Box from Vasu</name>
+      <addr>0xc615</addr>
+      <datatype>Bit</datatype>
+      <firstbit>0</firstbit>
+      <hint>Only used for password/linking purposes. There's also a global flag for this.</hint>
+    </item>
+    <!-- c616: Rings obtained. -->
+    <item>
+      <name>Death Counter</name>
+      <addr>0xc61e</addr>
+      <datatype>Word BCD</datatype>
+      <max>999</max>
+    </item>
+    <item>
+      <name>Enemies Slain</name>
+      <addr>0xc620</addr>
+      <datatype>Word</datatype>
+    </item>
+    <!-- c622: Playtime (TODO) -->
+    <item>
+      <name>Signs Destroyed</name>
+      <addr>0xc626</addr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>Total Rupees Collected</name>
+      <addr>0xc627</addr>
+      <datatype>Word</datatype>
+    </item>
+    <item>
+      <name>Text Speed</name>
+      <addr>0xc629</addr>
+      <datatype>Byte</datatype>
+      <max>4</max>
+    </item>
+    <item>
+      <name>Language</name>
+      <addr>0xc62a</addr>
+      <datatype>Byte</datatype>
+    </item>
+  </section>
 
-  <!-- New section -->
+    <!-- New section -->
+  <section name="Respawn">
+    <item>
+      <name>Saved Group</name>
+      <addr>0xc62b</addr>
+      <datatype>Byte</datatype> <!-- TODO: game-specific hints -->
+    </item>
+    <item>
+      <name>Saved Room</name>
+      <addr>0xc62c</addr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>Saved Season</name>
+      <addr>0xc62d</addr>
+      <datatype>Byte</datatype>
+      <hint>This can have an effect in Ages, particularly in jabu-jabu?</hint>
+    </item>
+    <item>
+      <name>Saved Facing Direction</name>
+      <addr>0xc62e</addr>
+      <datatype>Byte</datatype> <!-- TODO: combobox -->
+    </item>
+    <item>
+      <name>Saved Y-position</name>
+      <addr>0xc62f</addr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>Saved X-position</name>
+      <addr>0xc630</addr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>Saved Companion ID</name>
+      <addr>0xc631</addr>
+      <datatype>Byte</datatype> <!-- TODO: combobox -->
+    </item>
+    <item>
+      <name>Saved Companion Group</name>
+      <addr>0xc632</addr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>Saved Companion Room</name>
+      <addr>0xc633</addr>
+      <datatype>Byte</datatype>
+    </item>
+    <!-- c634: Link object index (never actually read) -->
+    <!-- c635: Unused variable? TODO: check if used in seasons? -->
+    <item>
+      <name>Saved Companion Y-position</name>
+      <addr>0xc636</addr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>Saved Companion X-position</name>
+      <addr>0xc637</addr>
+      <datatype>Byte</datatype>
+    </item>
 
-  <item>
-    <name>Saved Group</name>
-    <addr>0xc62b</addr>
-    <datatype>Byte</datatype> <!-- TODO: game-specific hints -->
-  </item>
-  <item>
-    <name>Saved Room</name>
-    <addr>0xc62c</addr>
-    <datatype>Byte</datatype>
-  </item>
-  <item>
-    <name>Saved Season</name>
-    <addr>0xc62d</addr>
-    <datatype>Byte</datatype>
-    <hint>This can have an effect in Ages, particularly in jabu-jabu?</hint>
-  </item>
-  <item>
-    <name>Saved Facing Direction</name>
-    <addr>0xc62e</addr>
-    <datatype>Byte</datatype> <!-- TODO: combobox -->
-  </item>
-  <item>
-    <name>Saved Y-position</name>
-    <addr>0xc62f</addr>
-    <datatype>Byte</datatype>
-  </item>
-  <item>
-    <name>Saved X-position</name>
-    <addr>0xc630</addr>
-    <datatype>Byte</datatype>
-  </item>
-  <item>
-    <name>Saved Companion ID</name>
-    <addr>0xc631</addr>
-    <datatype>Byte</datatype> <!-- TODO: combobox -->
-  </item>
-  <item>
-    <name>Saved Companion Group</name>
-    <addr>0xc632</addr>
-    <datatype>Byte</datatype>
-  </item>
-  <item>
-    <name>Saved Companion Room</name>
-    <addr>0xc633</addr>
-    <datatype>Byte</datatype>
-  </item>
-  <!-- c634: Link object index (never actually read) -->
-  <item>
-    <name>C635 (unused?)</name>
-    <addr>0xc635</addr>
-    <datatype>Byte</datatype>
-  </item>
-  <item>
-    <name>Saved Companion Y-position</name>
-    <addr>0xc636</addr>
-    <datatype>Byte</datatype>
-  </item>
-  <item>
-    <name>Saved Companion X-position</name>
-    <addr>0xc637</addr>
-    <datatype>Byte</datatype>
-  </item>
+    <!-- New section -->
 
-  <!-- New section -->
+    <item>
+      <name>Last mounted companion Y-position</name>
+      <addr>0xc638</addr>
+      <datatype>Byte</datatype>
+      <hint>Affects a certain glitch, and not much else.</hint>
+    </item>
+    <item>
+      <name>Last mounted companion X-position</name>
+      <addr>0xc639</addr>
+      <datatype>Byte</datatype>
+      <hint>Affects a certain glitch, and not much else.</hint>
+    </item>
 
-  <item>
-    <name>Last mounted companion Y-position</name>
-    <addr>0xc638</addr>
-    <datatype>Byte</datatype>
-    <hint>Affects a certain glitch, and not much else.</hint>
-  </item>
-  <item>
-    <name>Last mounted companion X-position</name>
-    <addr>0xc639</addr>
-    <datatype>Byte</datatype>
-    <hint>Affects a certain glitch, and not much else.</hint>
-  </item>
-  <item>
-    <name>Minimap Group</name>
-    <addr>0xc63a</addr>
-    <datatype>Byte</datatype>
-  </item>
-  <item>
-    <name>Minimap Room</name>
-    <addr>0xc63b</addr>
-    <datatype>Byte</datatype>
-  </item>
-  <item>
-    <name>Minimap Dungeon Map Position</name>
-    <addr>0xc63c</addr>
-    <datatype>Byte</datatype>
-  </item>
-  <item>
-    <name>Minimap Dungeon Floor</name>
-    <addr>0xc63d</addr>
-    <datatype>Byte</datatype>
-  </item>
+    <!-- c63a-c63d: Minimap variables which are recalculated on reloading -->
 
-  <item>
-    <name>Time Portal Group</name>
-    <agesaddr>0xc63e</agesaddr>
-    <datatype>Byte</datatype>
-  </item>
-  <item>
-    <name>Time Portal Room</name>
-    <agesaddr>0xc63f</agesaddr>
-    <datatype>Byte</datatype>
-  </item>
-  <item>
-    <name>Time Portal Y</name>
-    <agesaddr>0xc640</agesaddr>
-    <datatype>Bits</datatype>
-    <firstbit>4</firstbit>
-    <lastbit>7</lastbit>
-    <hint>Position is measured in tiles, not pixels.</hint>
-  </item>
-  <item>
-    <name>Time Portal X</name>
-    <agesaddr>0xc640</agesaddr>
-    <datatype>Bits</datatype>
-    <firstbit>0</firstbit>
-    <lastbit>3</lastbit>
-    <hint>Position is measured in tiles, not pixels.</hint>
-  </item>
+    <item>
+      <name>Time Portal Group</name>
+      <agesaddr>0xc63e</agesaddr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>Time Portal Room</name>
+      <agesaddr>0xc63f</agesaddr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>Time Portal Y</name>
+      <agesaddr>0xc640</agesaddr>
+      <datatype>Bits</datatype>
+      <firstbit>4</firstbit>
+      <lastbit>7</lastbit>
+      <hint>Position is measured in tiles, not pixels.</hint>
+    </item>
+    <item>
+      <name>Time Portal X</name>
+      <agesaddr>0xc640</agesaddr>
+      <datatype>Bits</datatype>
+      <firstbit>0</firstbit>
+      <lastbit>3</lastbit>
+      <hint>Position is measured in tiles, not pixels.</hint>
+    </item>
+  </section>
 
-  <item>
-    <name>Maple Kill Counter</name>
-    <agesaddr>0xc641</agesaddr>
-    <ssnsaddr>0xc63e</ssnsaddr>
-    <datatype>Byte</datatype>
-    <hint>Maple spawns when this reaches 30 (or 15 with maple's ring).</hint>
-  </item>
-</section>
+  <section name="Shops">
+    <item>
+      <name>Maple Kill Counter</name>
+      <agesaddr>0xc641</agesaddr>
+      <ssnsaddr>0xc63e</ssnsaddr>
+      <datatype>Byte</datatype>
+      <hint>Maple spawns when this reaches 30 (or 15 with maple's ring).</hint>
+    </item>
+    <item> <!-- TODO: seasons (everything below here) -->
+      <name>Hidden Shop: Got Ring Box Upgrade</name>
+      <agesaddr>0xc642</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0</firstbit>
+    </item>
+    <item>
+      <name>Hidden Shop: Got Gasha Seed 1</name>
+      <agesaddr>0xc642</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>1</firstbit>
+    </item>
+    <item>
+      <name>Hidden Shop: Got Gasha Seed 2</name>
+      <agesaddr>0xc642</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>2</firstbit>
+    </item>
+    <item>
+      <name>Hidden Shop: Got Ring</name>
+      <agesaddr>0xc642</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>3</firstbit>
+    </item>
+    <item>
+      <name>Shop: Bit 4 (unused?)</name>
+      <agesaddr>0xc642</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>4</firstbit>
+    </item>
+    <item>
+      <name>Main Shop: Got Gasha Seed (linked only)</name>
+      <agesaddr>0xc642</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>5</firstbit>
+    </item>
+    <item>
+      <name>Shop: Bit 6 (unused?)</name>
+      <agesaddr>0xc642</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>6</firstbit>
+    </item>
+    <item>
+      <name>Hidden Shop: Explained Chest Game</name>
+      <agesaddr>0xc642</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>7</firstbit>
+    </item>
+    <item>
+      <name>Advance Shop: Got Gasha Seed</name>
+      <agesaddr>0xc643</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0</firstbit>
+    </item>
+    <item>
+      <name>Advance Shop: Got GBA Ring</name>
+      <agesaddr>0xc643</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>1</firstbit>
+    </item>
+    <item>
+      <name>Advance Shop: Got Random Ring</name>
+      <agesaddr>0xc643</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>2</firstbit>
+    </item>
+    <!-- 0xc643 Bits 3-5: calculated on-the-fly -->
+    <item>
+      <name>Hidden Shop: Got Heart Piece</name>
+      <agesaddr>0xc643</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>6</firstbit>
+    </item>
+    <item>
+      <name>Shop: Bit 7 (unused?)</name>
+      <agesaddr>0xc643</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>7</firstbit>
+    </item>
+
+    <item>
+      <name># of maple encounters</name>
+      <agesaddr>0xc644</agesaddr>
+      <ssnsaddr>0xc641</ssnsaddr>
+      <datatype>Bits</datatype>
+      <firstbit>0</firstbit>
+      <lastbit>3</lastbit>
+    </item>
+    <!-- Bit 4: calculated on-the-fly -->
+    <item> <!-- TODO: seasons -->
+      <name>Exchanged Touching Book</name>
+      <agesaddr>0xc644</agesaddr>
+      <ssnsaddr>0xc641</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>5</firstbit>
+    </item>
+    <item>
+      <name>Maple Bit 6 (unused?)</name>
+      <agesaddr>0xc644</agesaddr>
+      <ssnsaddr>0xc641</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>6</firstbit>
+    </item>
+    <item>
+      <name>Got Maple Heart Piece</name>
+      <agesaddr>0xc644</agesaddr>
+      <ssnsaddr>0xc641</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>7</firstbit>
+    </item>
+    <item>
+      <name>c645 (unused?)</name>
+      <agesaddr>0xc645</agesaddr>
+      <ssnsaddr>0xc642</ssnsaddr>
+      <datatype>Byte</datatype>
+    </item>
+  </section>
+
+  <section name="Companions"> <!-- TODO: seasons -->
+    <item>
+      <name>Ricky: Asked to get gloves</name>
+      <agesaddr>0xc646</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0</firstbit>
+    </item>
+    <!-- TODO: bits 1-4 unused? -->
+    <item>
+      <name>Ricky: Returned gloves</name>
+      <agesaddr>0xc646</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>5</firstbit>
+    </item>
+    <item>
+      <name>Ricky: Gone (obtained island chart)</name>
+      <agesaddr>0xc646</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>6</firstbit>
+    </item>
+    <item>
+      <name>Ricky: Gave flute</name>
+      <agesaddr>0xc646</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>7</firstbit>
+    </item>
+
+    <item>
+      <name>Dimitri: Saw tokay cutscene</name>
+      <agesaddr>0xc647</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0</firstbit>
+    </item>
+    <item>
+      <name>Dimitri: Gave tokays ember seeds</name>
+      <agesaddr>0xc647</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>1</firstbit>
+    </item>
+    <item>
+      <name>Dimitri: Bit 2 (?)</name>
+      <agesaddr>0xc647</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>2</firstbit>
+    </item>
+    <!-- TODO: Bits 3-4 unused? What about bit 2? -->
+    <item>
+      <name>Dimitri: Talked to him</name>
+      <agesaddr>0xc647</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>5</firstbit>
+    </item>
+    <item>
+      <name>Dimitri: Gone (returned Link to shore)</name>
+      <agesaddr>0xc647</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>6</firstbit>
+    </item>
+    <item>
+      <name>Dimitri: Gave flute</name>
+      <agesaddr>0xc647</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>7</firstbit>
+    </item>
+
+    <!-- TODO: Bits 0-4 unused? What about 5? -->
+    <item>
+      <name>Moosh: Bit 5?</name>
+      <agesaddr>0xc648</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>5</firstbit>
+    </item>
+    <item>
+      <name>Moosh: Gone</name>
+      <agesaddr>0xc649</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>6</firstbit>
+    </item>
+    <item>
+      <name>Moosh: Gave flute</name>
+      <agesaddr>0xc648</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>7</firstbit>
+    </item>
+
+    <item>
+      <name>Ricky tutorial: jumping over holes</name>
+      <agesaddr>0xc649</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0</firstbit>
+    </item>
+    <item>
+      <name>Ricky tutorial: jumping up cliffs</name>
+      <agesaddr>0xc649</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>1</firstbit>
+    </item>
+    <item>
+      <name>Dimitri tutorial: carrying him</name>
+      <agesaddr>0xc649</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>2</firstbit>
+    </item>
+    <item>
+      <name>Dimitri tutorial: swimming up waterfalls</name>
+      <agesaddr>0xc649</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>3</firstbit>
+    </item>
+    <item>
+      <name>Moosh tutorial: flying</name>
+      <agesaddr>0xc649</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>4</firstbit>
+    </item>
+    <item>
+      <name>Moosh tutorial: buttstomp</name>
+      <agesaddr>0xc649</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>5</firstbit>
+    </item>
+    <!-- TODO: Bits 6-7 unused? -->
+  </section>
+
+  <section name="Gasha Seeds">
+    <item>
+      <name>c64a (unused?)</name>
+      <agesaddr>0xc64a</agesaddr>
+      <ssnsaddr>0xc647</ssnsaddr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>c64b (unused?)</name>
+      <agesaddr>0xc64b</agesaddr>
+      <ssnsaddr>0xc648</ssnsaddr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>Harvested first gasha nut</name>
+      <agesaddr>0xc64c</agesaddr>
+      <ssnsaddr>0xc649</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0</firstbit>
+      <hint>The first gasha nut is always a bad ("class 1") ring.</hint>
+    </item>
+    <item>
+      <name>Got gasha heart piece</name>
+      <agesaddr>0xc64c</agesaddr>
+      <ssnsaddr>0xc649</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>1</firstbit>
+    </item>
+    <item>
+      <name>Gasha Maturity</name>
+      <agesaddr>0xc65f</agesaddr>
+      <ssnsaddr>0xc65c</ssnsaddr>
+      <datatype>Word</datatype>
+      <hint>Higher values give better rewards. Various things, like enemy kills and obtaining essences, increase this. Harvesting nuts decreases this.</hint>
+    </item>
+
+    <item> <!-- TODO: hints for spots -->
+      <name>Spot 0 planted</name>
+      <agesaddr>0xc64d</agesaddr>
+      <ssnsaddr>0xc64a</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0</firstbit>
+    </item>
+    <item>
+      <name>Spot 0 kill counter</name>
+      <agesaddr>0xc64f</agesaddr>
+      <ssnsaddr>0xc64c</ssnsaddr>
+      <datatype>Byte</datatype>
+      <hint>Fully grown when this reaches 40. (With gasha ring equipped, this is incremented twice per kill.)</hint>
+    </item>
+    <item>
+      <name>Spot 1 planted</name>
+      <agesaddr>0xc64d</agesaddr>
+      <ssnsaddr>0xc64a</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>1</firstbit>
+    </item>
+    <item>
+      <name>Spot 1 kill counter</name>
+      <agesaddr>0xc650</agesaddr>
+      <ssnsaddr>0xc64d</ssnsaddr>
+      <datatype>Byte</datatype>
+      <hint>Fully grown when this reaches 40. (With gasha ring equipped, this is incremented twice per kill.)</hint>
+    </item>
+    <item>
+      <name>Spot 2 planted</name>
+      <agesaddr>0xc64d</agesaddr>
+      <ssnsaddr>0xc64a</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>2</firstbit>
+    </item>
+    <item>
+      <name>Spot 2 kill counter</name>
+      <agesaddr>0xc651</agesaddr>
+      <ssnsaddr>0xc64e</ssnsaddr>
+      <datatype>Byte</datatype>
+      <hint>Fully grown when this reaches 40. (With gasha ring equipped, this is incremented twice per kill.)</hint>
+    </item>
+    <item>
+      <name>Spot 3 planted</name>
+      <agesaddr>0xc64d</agesaddr>
+      <ssnsaddr>0xc64a</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>3</firstbit>
+    </item>
+    <item>
+      <name>Spot 3 kill counter</name>
+      <agesaddr>0xc652</agesaddr>
+      <ssnsaddr>0xc64f</ssnsaddr>
+      <datatype>Byte</datatype>
+      <hint>Fully grown when this reaches 40. (With gasha ring equipped, this is incremented twice per kill.)</hint>
+    </item>
+    <item>
+      <name>Spot 4 planted</name>
+      <agesaddr>0xc64d</agesaddr>
+      <ssnsaddr>0xc64a</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>4</firstbit>
+    </item>
+    <item>
+      <name>Spot 4 kill counter</name>
+      <agesaddr>0xc653</agesaddr>
+      <ssnsaddr>0xc650</ssnsaddr>
+      <datatype>Byte</datatype>
+      <hint>Fully grown when this reaches 40. (With gasha ring equipped, this is incremented twice per kill.)</hint>
+    </item>
+    <item>
+      <name>Spot 5 planted</name>
+      <agesaddr>0xc64d</agesaddr>
+      <ssnsaddr>0xc64a</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>5</firstbit>
+    </item>
+    <item>
+      <name>Spot 5 kill counter</name>
+      <agesaddr>0xc654</agesaddr>
+      <ssnsaddr>0xc651</ssnsaddr>
+      <datatype>Byte</datatype>
+      <hint>Fully grown when this reaches 40. (With gasha ring equipped, this is incremented twice per kill.)</hint>
+    </item>
+    <item>
+      <name>Spot 6 planted</name>
+      <agesaddr>0xc64d</agesaddr>
+      <ssnsaddr>0xc64a</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>6</firstbit>
+    </item>
+    <item>
+      <name>Spot 6 kill counter</name>
+      <agesaddr>0xc655</agesaddr>
+      <ssnsaddr>0xc652</ssnsaddr>
+      <datatype>Byte</datatype>
+      <hint>Fully grown when this reaches 40. (With gasha ring equipped, this is incremented twice per kill.)</hint>
+    </item>
+    <item>
+      <name>Spot 7 planted</name>
+      <agesaddr>0xc64d</agesaddr>
+      <ssnsaddr>0xc64a</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>7</firstbit>
+    </item>
+    <item>
+      <name>Spot 7 kill counter</name>
+      <agesaddr>0xc656</agesaddr>
+      <ssnsaddr>0xc653</ssnsaddr>
+      <datatype>Byte</datatype>
+      <hint>Fully grown when this reaches 40. (With gasha ring equipped, this is incremented twice per kill.)</hint>
+    </item>
+    <item>
+      <name>Spot 8 planted</name>
+      <agesaddr>0xc64e</agesaddr>
+      <ssnsaddr>0xc64b</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0</firstbit>
+    </item>
+    <item>
+      <name>Spot 8 kill counter</name>
+      <agesaddr>0xc657</agesaddr>
+      <ssnsaddr>0xc654</ssnsaddr>
+      <datatype>Byte</datatype>
+      <hint>Fully grown when this reaches 40. (With gasha ring equipped, this is incremented twice per kill.)</hint>
+    </item>
+    <item>
+      <name>Spot 9 planted</name>
+      <agesaddr>0xc64e</agesaddr>
+      <ssnsaddr>0xc64b</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>1</firstbit>
+    </item>
+    <item>
+      <name>Spot 9 kill counter</name>
+      <agesaddr>0xc658</agesaddr>
+      <ssnsaddr>0xc655</ssnsaddr>
+      <datatype>Byte</datatype>
+      <hint>Fully grown when this reaches 40. (With gasha ring equipped, this is incremented twice per kill.)</hint>
+    </item>
+    <item>
+      <name>Spot 10 planted</name>
+      <agesaddr>0xc64e</agesaddr>
+      <ssnsaddr>0xc64b</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>2</firstbit>
+    </item>
+    <item>
+      <name>Spot 10 kill counter</name>
+      <agesaddr>0xc659</agesaddr>
+      <ssnsaddr>0xc656</ssnsaddr>
+      <datatype>Byte</datatype>
+      <hint>Fully grown when this reaches 40. (With gasha ring equipped, this is incremented twice per kill.)</hint>
+    </item>
+    <item>
+      <name>Spot 11 planted</name>
+      <agesaddr>0xc64e</agesaddr>
+      <ssnsaddr>0xc64b</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>3</firstbit>
+    </item>
+    <item>
+      <name>Spot 11 kill counter</name>
+      <agesaddr>0xc65a</agesaddr>
+      <ssnsaddr>0xc657</ssnsaddr>
+      <datatype>Byte</datatype>
+      <hint>Fully grown when this reaches 40. (With gasha ring equipped, this is incremented twice per kill.)</hint>
+    </item>
+    <item>
+      <name>Spot 12 planted</name>
+      <agesaddr>0xc64e</agesaddr>
+      <ssnsaddr>0xc64b</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>4</firstbit>
+    </item>
+    <item>
+      <name>Spot 12 kill counter</name>
+      <agesaddr>0xc65b</agesaddr>
+      <ssnsaddr>0xc658</ssnsaddr>
+      <datatype>Byte</datatype>
+      <hint>Fully grown when this reaches 40. (With gasha ring equipped, this is incremented twice per kill.)</hint>
+    </item>
+    <item>
+      <name>Spot 13 planted</name>
+      <agesaddr>0xc64e</agesaddr>
+      <ssnsaddr>0xc64b</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>5</firstbit>
+    </item>
+    <item>
+      <name>Spot 13 kill counter</name>
+      <agesaddr>0xc65c</agesaddr>
+      <ssnsaddr>0xc659</ssnsaddr>
+      <datatype>Byte</datatype>
+      <hint>Fully grown when this reaches 40. (With gasha ring equipped, this is incremented twice per kill.)</hint>
+    </item>
+    <item>
+      <name>Spot 14 planted</name>
+      <agesaddr>0xc64e</agesaddr>
+      <ssnsaddr>0xc64b</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>6</firstbit>
+    </item>
+    <item>
+      <name>Spot 14 kill counter</name>
+      <agesaddr>0xc65d</agesaddr>
+      <ssnsaddr>0xc65a</ssnsaddr>
+      <datatype>Byte</datatype>
+      <hint>Fully grown when this reaches 40. (With gasha ring equipped, this is incremented twice per kill.)</hint>
+    </item>
+    <item>
+      <name>Spot 15 planted</name>
+      <agesaddr>0xc64e</agesaddr>
+      <ssnsaddr>0xc64b</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>7</firstbit>
+    </item>
+    <item>
+      <name>Spot 15 kill counter</name>
+      <agesaddr>0xc65e</agesaddr>
+      <ssnsaddr>0xc65b</ssnsaddr>
+      <datatype>Byte</datatype>
+      <hint>Fully grown when this reaches 40. (With gasha ring equipped, this is incremented twice per kill.)</hint>
+    </item>
+  </section>
+
+  <section name="Dungeons">
+    <item>
+      <name>c661 (unused?)</name>
+      <agesaddr>0xc661</agesaddr>
+      <datatype>Byte</datatype>
+    </item>
+
+    <!-- TODO: seasons-only variables -->
+
+    <item> <!-- TODO: better format -->
+      <name>D0 Visited Floors</name>
+      <agesaddr>0xc662</agesaddr>
+      <ssnsaddr>0xc662</ssnsaddr>
+      <datatype>Byte</datatype>
+      <hint>Bitset of floors visited, for dungeon map purposes.</hint>
+    </item>
+    <item>
+      <name>D0 Small Keys</name>
+      <agesaddr>0xc672</agesaddr>
+      <ssnsaddr>0xc66e</ssnsaddr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>D0 Boss Key</name>
+      <agesaddr>0xc682</agesaddr>
+      <ssnsaddr>0xc67a</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0</firstbit>
+    </item>
+    <item>
+      <name>D0 Compass</name>
+      <agesaddr>0xc684</agesaddr>
+      <ssnsaddr>0xc67c</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0</firstbit>
+    </item>
+    <item>
+      <name>D0 Map</name>
+      <agesaddr>0xc686</agesaddr>
+      <ssnsaddr>0xc67e</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0</firstbit>
+    </item>
+
+    <item>
+      <name>D1 Visited Floors</name>
+      <agesaddr>0xc663</agesaddr>
+      <ssnsaddr>0xc663</ssnsaddr>
+      <datatype>Byte</datatype>
+      <hint>Bitset of floors visited, for dungeon map purposes.</hint>
+    </item>
+    <item>
+      <name>D1 Small Keys</name>
+      <agesaddr>0xc673</agesaddr>
+      <ssnsaddr>0xc66f</ssnsaddr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>D1 Boss Key</name>
+      <agesaddr>0xc682</agesaddr>
+      <ssnsaddr>0xc67a</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>1</firstbit>
+    </item>
+    <item>
+      <name>D1 Compass</name>
+      <agesaddr>0xc684</agesaddr>
+      <ssnsaddr>0xc67c</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>1</firstbit>
+    </item>
+    <item>
+      <name>D1 Map</name>
+      <agesaddr>0xc686</agesaddr>
+      <ssnsaddr>0xc67e</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>1</firstbit>
+    </item>
+
+    <item>
+      <name>D2 Visited Floors</name>
+      <agesaddr>0xc664</agesaddr>
+      <ssnsaddr>0xc664</ssnsaddr>
+      <datatype>Byte</datatype>
+      <hint>Bitset of floors visited, for dungeon map purposes.</hint>
+    </item>
+    <item>
+      <name>D2 Small Keys</name>
+      <agesaddr>0xc674</agesaddr>
+      <ssnsaddr>0xc670</ssnsaddr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>D2 Boss Key</name>
+      <agesaddr>0xc682</agesaddr>
+      <ssnsaddr>0xc67a</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>2</firstbit>
+    </item>
+    <item>
+      <name>D2 Compass</name>
+      <agesaddr>0xc684</agesaddr>
+      <ssnsaddr>0xc67c</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>2</firstbit>
+    </item>
+    <item>
+      <name>D2 Map</name>
+      <agesaddr>0xc686</agesaddr>
+      <ssnsaddr>0xc67e</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>2</firstbit>
+    </item>
+
+    <item>
+      <name>D3 Visited Floors</name>
+      <agesaddr>0xc665</agesaddr>
+      <ssnsaddr>0xc665</ssnsaddr>
+      <datatype>Byte</datatype>
+      <hint>Bitset of floors visited, for dungeon map purposes.</hint>
+    </item>
+    <item>
+      <name>D3 Small Keys</name>
+      <agesaddr>0xc675</agesaddr>
+      <ssnsaddr>0xc671</ssnsaddr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>D3 Boss Key</name>
+      <agesaddr>0xc682</agesaddr>
+      <ssnsaddr>0xc67a</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>3</firstbit>
+    </item>
+    <item>
+      <name>D3 Compass</name>
+      <agesaddr>0xc684</agesaddr>
+      <ssnsaddr>0xc67c</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>3</firstbit>
+    </item>
+    <item>
+      <name>D3 Map</name>
+      <agesaddr>0xc686</agesaddr>
+      <ssnsaddr>0xc67e</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>3</firstbit>
+    </item>
+
+    <item>
+      <name>D4 Visited Floors</name>
+      <agesaddr>0xc666</agesaddr>
+      <ssnsaddr>0xc666</ssnsaddr>
+      <datatype>Byte</datatype>
+      <hint>Bitset of floors visited, for dungeon map purposes.</hint>
+    </item>
+    <item>
+      <name>D4 Small Keys</name>
+      <agesaddr>0xc676</agesaddr>
+      <ssnsaddr>0xc672</ssnsaddr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>D4 Boss Key</name>
+      <agesaddr>0xc682</agesaddr>
+      <ssnsaddr>0xc67a</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>4</firstbit>
+    </item>
+    <item>
+      <name>D4 Compass</name>
+      <agesaddr>0xc684</agesaddr>
+      <ssnsaddr>0xc67c</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>4</firstbit>
+    </item>
+    <item>
+      <name>D4 Map</name>
+      <agesaddr>0xc686</agesaddr>
+      <ssnsaddr>0xc67e</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>4</firstbit>
+    </item>
+
+    <item>
+      <name>D5 Visited Floors</name>
+      <agesaddr>0xc667</agesaddr>
+      <ssnsaddr>0xc667</ssnsaddr>
+      <datatype>Byte</datatype>
+      <hint>Bitset of floors visited, for dungeon map purposes.</hint>
+    </item>
+    <item>
+      <name>D5 Small Keys</name>
+      <agesaddr>0xc677</agesaddr>
+      <ssnsaddr>0xc673</ssnsaddr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>D5 Boss Key</name>
+      <agesaddr>0xc682</agesaddr>
+      <ssnsaddr>0xc67a</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>5</firstbit>
+    </item>
+    <item>
+      <name>D5 Compass</name>
+      <agesaddr>0xc684</agesaddr>
+      <ssnsaddr>0xc67c</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>5</firstbit>
+    </item>
+    <item>
+      <name>D5 Map</name>
+      <agesaddr>0xc686</agesaddr>
+      <ssnsaddr>0xc67e</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>5</firstbit>
+    </item>
+
+    <item>
+      <name>D6 Visited Floors</name>
+      <agesaddr>0xc668</agesaddr>
+      <ssnsaddr>0xc668</ssnsaddr>
+      <datatype>Byte</datatype>
+      <hint>Bitset of floors visited, for dungeon map purposes.</hint>
+    </item>
+    <item>
+      <name>D6 Small Keys</name>
+      <agesaddr>0xc678</agesaddr>
+      <ssnsaddr>0xc674</ssnsaddr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>D6 Boss Key</name>
+      <agesaddr>0xc682</agesaddr>
+      <ssnsaddr>0xc67a</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>6</firstbit>
+    </item>
+    <item>
+      <name>D6 Compass</name>
+      <agesaddr>0xc684</agesaddr>
+      <ssnsaddr>0xc67c</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>6</firstbit>
+    </item>
+    <item>
+      <name>D6 Map</name>
+      <agesaddr>0xc686</agesaddr>
+      <ssnsaddr>0xc67e</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>6</firstbit>
+    </item>
+
+    <item>
+      <name>D7 Visited Floors</name>
+      <agesaddr>0xc669</agesaddr>
+      <ssnsaddr>0xc669</ssnsaddr>
+      <datatype>Byte</datatype>
+      <hint>Bitset of floors visited, for dungeon map purposes.</hint>
+    </item>
+    <item>
+      <name>D7 Small Keys</name>
+      <agesaddr>0xc679</agesaddr>
+      <ssnsaddr>0xc675</ssnsaddr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>D7 Boss Key</name>
+      <agesaddr>0xc682</agesaddr>
+      <ssnsaddr>0xc67a</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>7</firstbit>
+    </item>
+    <item>
+      <name>D7 Compass</name>
+      <agesaddr>0xc684</agesaddr>
+      <ssnsaddr>0xc67c</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>7</firstbit>
+    </item>
+    <item>
+      <name>D7 Map</name>
+      <agesaddr>0xc686</agesaddr>
+      <ssnsaddr>0xc67e</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>7</firstbit>
+    </item>
+
+    <item>
+      <name>D8 Visited Floors</name>
+      <agesaddr>0xc66a</agesaddr>
+      <ssnsaddr>0xc66a</ssnsaddr>
+      <datatype>Byte</datatype>
+      <hint>Bitset of floors visited, for dungeon map purposes.</hint>
+    </item>
+    <item>
+      <name>D8 Small Keys</name>
+      <agesaddr>0xc67a</agesaddr>
+      <ssnsaddr>0xc676</ssnsaddr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>D8 Boss Key</name>
+      <agesaddr>0xc683</agesaddr>
+      <ssnsaddr>0xc67b</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0</firstbit>
+    </item>
+    <item>
+      <name>D8 Compass</name>
+      <agesaddr>0xc685</agesaddr>
+      <ssnsaddr>0xc67d</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0</firstbit>
+    </item>
+    <item>
+      <name>D8 Map</name>
+      <agesaddr>0xc687</agesaddr>
+      <ssnsaddr>0xc67f</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0</firstbit>
+    </item>
+
+    <item>
+      <name>D9 Visited Floors</name>
+      <agesaddr>0xc66b</agesaddr>
+      <ssnsaddr>0xc66b</ssnsaddr>
+      <datatype>Byte</datatype>
+      <hint>Bitset of floors visited, for dungeon map purposes.</hint>
+    </item>
+    <item>
+      <name>D9 Small Keys</name>
+      <agesaddr>0xc67b</agesaddr>
+      <ssnsaddr>0xc677</ssnsaddr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>D9 Boss Key</name>
+      <agesaddr>0xc683</agesaddr>
+      <ssnsaddr>0xc67b</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>1</firstbit>
+    </item>
+    <item>
+      <name>D9 Compass</name>
+      <agesaddr>0xc685</agesaddr>
+      <ssnsaddr>0xc67d</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>1</firstbit>
+    </item>
+    <item>
+      <name>D9 Map</name>
+      <agesaddr>0xc687</agesaddr>
+      <ssnsaddr>0xc67f</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>1</firstbit>
+    </item>
+
+    <item>
+      <name>D10 Visited Floors</name>
+      <agesaddr>0xc66c</agesaddr>
+      <ssnsaddr>0xc66c</ssnsaddr>
+      <datatype>Byte</datatype>
+      <hint>Bitset of floors visited, for dungeon map purposes.</hint>
+    </item>
+    <item>
+      <name>D10 Small Keys</name>
+      <agesaddr>0xc67c</agesaddr>
+      <ssnsaddr>0xc678</ssnsaddr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>D10 Boss Key</name>
+      <agesaddr>0xc683</agesaddr>
+      <ssnsaddr>0xc67b</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>2</firstbit>
+    </item>
+    <item>
+      <name>D10 Compass</name>
+      <agesaddr>0xc685</agesaddr>
+      <ssnsaddr>0xc67d</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>2</firstbit>
+    </item>
+    <item>
+      <name>D10 Map</name>
+      <agesaddr>0xc687</agesaddr>
+      <ssnsaddr>0xc67f</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>2</firstbit>
+    </item>
+
+    <item>
+      <name>D11 Visited Floors</name>
+      <agesaddr>0xc66d</agesaddr>
+      <ssnsaddr>0xc66d</ssnsaddr>
+      <datatype>Byte</datatype>
+      <hint>Bitset of floors visited, for dungeon map purposes.</hint>
+    </item>
+    <item>
+      <name>D11 Small Keys</name>
+      <agesaddr>0xc67d</agesaddr>
+      <ssnsaddr>0xc679</ssnsaddr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>D11 Boss Key</name>
+      <agesaddr>0xc683</agesaddr>
+      <ssnsaddr>0xc67b</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>3</firstbit>
+    </item>
+    <item>
+      <name>D11 Compass</name>
+      <agesaddr>0xc685</agesaddr>
+      <ssnsaddr>0xc67d</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>3</firstbit>
+    </item>
+    <item>
+      <name>D11 Map</name>
+      <agesaddr>0xc687</agesaddr>
+      <ssnsaddr>0xc67f</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>3</firstbit>
+    </item>
+
+    <!-- Ages-only -->
+    <item>
+      <name>D12 Visited Floors</name>
+      <agesaddr>0xc66e</agesaddr>
+      <datatype>Byte</datatype>
+      <hint>Bitset of floors visited, for dungeon map purposes.</hint>
+    </item>
+    <item>
+      <name>D12 Small Keys</name>
+      <agesaddr>0xc67e</agesaddr>
+      <ssnsaddr>0xc67a</ssnsaddr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>D12 Boss Key</name>
+      <agesaddr>0xc683</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>4</firstbit>
+    </item>
+    <item>
+      <name>D12 Compass</name>
+      <agesaddr>0xc685</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>4</firstbit>
+    </item>
+    <item>
+      <name>D12 Map</name>
+      <agesaddr>0xc687</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>4</firstbit>
+    </item>
+
+    <item>
+      <name>D13 Visited Floors</name>
+      <agesaddr>0xc66f</agesaddr>
+      <datatype>Byte</datatype>
+      <hint>Bitset of floors visited, for dungeon map purposes.</hint>
+    </item>
+    <item>
+      <name>D13 Small Keys</name>
+      <agesaddr>0xc67f</agesaddr>
+      <ssnsaddr>0xc67b</ssnsaddr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>D13 Boss Key</name>
+      <agesaddr>0xc683</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>5</firstbit>
+    </item>
+    <item>
+      <name>D13 Compass</name>
+      <agesaddr>0xc685</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>5</firstbit>
+    </item>
+    <item>
+      <name>D13 Map</name>
+      <agesaddr>0xc687</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>5</firstbit>
+    </item>
+
+    <item>
+      <name>D14 Visited Floors</name>
+      <agesaddr>0xc670</agesaddr>
+      <datatype>Byte</datatype>
+      <hint>Bitset of floors visited, for dungeon map purposes.</hint>
+    </item>
+    <item>
+      <name>D14 Small Keys</name>
+      <agesaddr>0xc680</agesaddr>
+      <ssnsaddr>0xc67c</ssnsaddr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>D14 Boss Key</name>
+      <agesaddr>0xc683</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>6</firstbit>
+    </item>
+    <item>
+      <name>D14 Compass</name>
+      <agesaddr>0xc685</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>6</firstbit>
+    </item>
+    <item>
+      <name>D14 Map</name>
+      <agesaddr>0xc687</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>6</firstbit>
+    </item>
+
+    <item>
+      <name>D15 Visited Floors</name>
+      <agesaddr>0xc671</agesaddr>
+      <datatype>Byte</datatype>
+      <hint>Bitset of floors visited, for dungeon map purposes.</hint>
+    </item>
+    <item>
+      <name>D15 Small Keys</name>
+      <agesaddr>0xc681</agesaddr>
+      <ssnsaddr>0xc67d</ssnsaddr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>D15 Boss Key</name>
+      <agesaddr>0xc683</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>7</firstbit>
+    </item>
+    <item>
+      <name>D15 Compass</name>
+      <agesaddr>0xc685</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>7</firstbit>
+    </item>
+    <item>
+      <name>D15 Map</name>
+      <agesaddr>0xc687</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>7</firstbit>
+    </item>
+  </section>
+
+  <!-- TODO: inventory & treasure flags -->
+
+  <section name="Health">
+    <item>
+      <name>Link Health</name>
+      <agesaddr>0xc6aa</agesaddr>
+      <ssnsaddr>0xc6a2</ssnsaddr>
+      <datatype>Byte</datatype>
+      <hint>Measured in quarter hearts.</hint>
+    </item>
+    <item>
+      <name>Link Max Health</name>
+      <agesaddr>0xc6ab</agesaddr>
+      <ssnsaddr>0xc6a3</ssnsaddr>
+      <datatype>Byte</datatype>
+      <hint>Measured in quarter hearts.</hint>
+    </item>
+    <item>
+      <name># Heart Pieces</name>
+      <agesaddr>0xc6ac</agesaddr>
+      <ssnsaddr>0xc6a4</ssnsaddr>
+      <datatype>Byte</datatype>
+      <max>3</max>
+      <hint>Measured in quarter hearts.</hint>
+    </item>
+    <item>
+      <name>Rupees</name>
+      <agesaddr>0xc6ad</agesaddr>
+      <ssnsaddr>0xc6a5</ssnsaddr>
+      <datatype>Word BCD</datatype>
+      <max>0x999</max>
+    </item>
+    <item>
+      <name>Ore Chunks</name>
+      <ssnsaddr>0xc6a7</ssnsaddr>
+      <datatype>Word BCD</datatype>
+      <max>0x999</max>
+    </item>
+  </section>
+
+  <!-- TODO: Everything from after "ore chunks" to "active ring" -->
+
+  <section name="Misc">
+    <item>
+      <name>Total Appraised Rings</name>
+      <agesaddr>0xc6ce</agesaddr>
+      <ssnsaddr>0xc6c8</ssnsaddr>
+      <datatype>Byte</datatype>
+      <hint>Vasu gives you the 100th ring when this reaches 100.</hint>
+    </item>
+    <item>
+      <name>Killed Golden Octorok</name>
+      <ssnsaddr>0xc6c9</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0</firstbit>
+    </item>
+    <item>
+      <name>Killed Golden Moblin</name>
+      <ssnsaddr>0xc6c9</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>1</firstbit>
+    </item>
+    <item>
+      <name>Killed Golden Darknut</name>
+      <ssnsaddr>0xc6c9</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>2</firstbit>
+    </item>
+    <item>
+      <name>Killed Golden Lynel</name>
+      <ssnsaddr>0xc6c9</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>3</firstbit>
+    </item>
+  </section>
+
+  <section name="Global Flags">
+    <item>
+      <name>0x00: Killed 1000 enemies</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <ssnsaddr>0xc6ca</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x00</firstbit>
+    </item>
+    <item>
+      <name>0x01: Collected 10000 rupees</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <ssnsaddr>0xc6ca</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x01</firstbit>
+    </item>
+    <item>
+      <name>0x02: Beat Ganon</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <ssnsaddr>0xc6ca</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x02</firstbit>
+      <hint>Flag set on hero's file</hint>
+    </item>
+    <item>
+      <name>0x03: Unused?</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <ssnsaddr>0xc6ca</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x03</firstbit>
+    </item>
+    <item>
+      <name>0x04: Got Slayer's Ring</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <ssnsaddr>0xc6ca</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x04</firstbit>
+    </item>
+    <item>
+      <name>0x05: Got Wealth Ring</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <ssnsaddr>0xc6ca</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x05</firstbit>
+    </item>
+    <item>
+      <name>0x06: Got Victory Ring</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <ssnsaddr>0xc6ca</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x06</firstbit>
+    </item>
+    <item>
+      <name>0x07: Unused?</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <ssnsaddr>0xc6ca</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x07</firstbit>
+    </item>
+    <item>
+      <name>0x08: Got ring box from Vasu</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <ssnsaddr>0xc6ca</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x08</firstbit>
+    </item>
+    <item>
+      <name>0x09: Appraised 100 rings</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <ssnsaddr>0xc6ca</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x09</firstbit>
+    </item>
+    <item>
+      <name>0x0a: Finished intro</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <ssnsaddr>0xc6ca</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x0a</firstbit>
+      <hint>This flag enables the start/select buttons, turns music on, etc.</hint>
+    </item>
+
+    <!-- Ages-only flags (TODO: seasons flags) -->
+    <item>
+      <name>0x0b: Got bombs from Ambi</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x0b</firstbit>
+    </item>
+    <item>
+      <name>0x0c: Maku tree disappeared</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x0c</firstbit>
+    </item>
+    <item>
+      <name>0x0d: ?</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x0d</firstbit>
+    </item>
+    <item>
+      <name>0x0e: Won fairy hide-and-seek</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x0e</firstbit>
+    </item>
+    <item>
+      <name>0x0f: D3 crystals destroyed</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x0f</firstbit>
+    </item>
+    <item>
+      <name>0x10: Watched Ambi's palace cutscene?</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x10</firstbit>
+    </item>
+    <item>
+      <name>0x11: Saved Nayru</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x11</firstbit>
+    </item>
+    <item>
+      <name>0x12: Saved Maku Tree</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x12</firstbit>
+    </item>
+    <item>
+      <name>0x13: Saw Twinrova cutscene after maku seed</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x13</firstbit>
+    </item>
+    <item>
+      <name>0x14: Completed game (unlinked)</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x14</firstbit>
+    </item>
+    <item>
+      <name>0x15: Gave rope to Rafton</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x15</firstbit>
+    </item>
+    <item>
+      <name>0x16: Hide era blurb</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x16</firstbit>
+      <hint>The "time era" blurb is hidden once, then this flag is cleared.</hint>
+    </item>
+    <item>
+      <name>0x17: ?</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x17</firstbit>
+    </item>
+    <item>
+      <name>0x18: Began Nayru fight</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x18</firstbit>
+    </item>
+    <item>
+      <name>0x19: Beat possessed Nayru</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x19</firstbit>
+    </item>
+    <item>
+      <name>0x1a: Destroyed Moblin's Keep</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x1a</firstbit>
+    </item>
+    <item>
+      <name>0x1b: Got Island Chart</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x1b</firstbit>
+    </item>
+    <item>
+      <name>0x1c: Got bomb upgrade from fairy</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x1c</firstbit>
+    </item>
+    <item>
+      <name>0x1d: Flute in shop</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x1d</firstbit>
+    </item>
+    <item>
+      <name>0x1e: ?</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x1e</firstbit>
+    </item>
+    <item>
+      <name>0x1f: Patch repaired everything</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x1f</firstbit>
+    </item>
+    <item>
+      <name>0x20: Talked to octorok fairy</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x20</firstbit>
+    </item>
+    <item>
+      <name>0x21: Pregame intro done</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x21</firstbit>
+      <hint>Saw the "accept our quest" mini-cutscene</hint>
+    </item>
+    <item>
+      <name>0x22: Talked to head carpenter</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x22</firstbit>
+    </item>
+    <item>
+      <name>0x23: Got companion's flute</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x23</firstbit>
+    </item>
+    <item>
+      <name>0x24: Saved companion from forest</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x24</firstbit>
+    </item>
+    <item>
+      <name>0x25: Build Symmetry City bridge</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x25</firstbit>
+    </item>
+    <item>
+      <name>0x26: Rafton moved to right room</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x26</firstbit>
+    </item>
+    <item>
+      <name>0x27: Cured King Zora</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x27</firstbit>
+    </item>
+    <item>
+      <name>0x28: Generated ring secret</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x28</firstbit>
+      <hint>Makes the ring secret appear in Farore's book of memories.</hint>
+    </item>
+    <item>
+      <name>0x29: Placed repaired Tuni Nut</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x29</firstbit>
+    </item>
+    <item>
+      <name>0x2a: Unused?</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x2a</firstbit>
+    </item>
+    <item>
+      <name>0x2b: Forest unscrambled</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x2b</firstbit>
+    </item>
+    <item>
+      <name>0x2c: Chest from Farore waiting to be opened</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x2c</firstbit>
+      <hint>Editing this has no effect. It's a temporary flag used by farore.</hint>
+    </item>
+    <item>
+      <name>0x2d: Unused?</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x2d</firstbit>
+    </item>
+    <item>
+      <name>0x2e: Unused?</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x2e</firstbit>
+    </item>
+    <item>
+      <name>0x2f: Saved Goron Elder</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x2f</firstbit>
+    </item>
+    <item>
+      <name>0x30: Water pollution fixed</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x30</firstbit>
+    </item>
+    <item>
+      <name>0x31: Got permission to enter Jabu</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x31</firstbit>
+    </item>
+    <item>
+      <name>0x32: Ralph entered Ambi's Palace</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x32</firstbit>
+    </item>
+    <item>
+      <name>0x33: Pre-black tower cutscene done</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x33</firstbit>
+      <hint>The cutscene where Impa explains Ralph's heritage.</hint>
+    </item>
+    <item>
+      <name>0x34: Piratians left</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x34</firstbit>
+    </item>
+    <item>
+      <name>0x35: Got Maku Seed</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x35</firstbit>
+    </item>
+    <item>
+      <name>0x36: Bought feather from tokay</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x36</firstbit>
+    </item>
+    <item>
+      <name>0x37: Bought bracelet from tokay</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x37</firstbit>
+    </item>
+    <item>
+      <name>0x38: Got ring from Zelda</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x38</firstbit>
+    </item>
+    <item>
+      <name>0x39: Talked to Impa after Zelda was kidnapped</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x39</firstbit>
+    </item>
+    <item>
+      <name>0x3a: Flame of Despair lit</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x3a</firstbit>
+      <hint>Set after beating Veran in a linked game</hint>
+    </item>
+    <item>
+      <name>0x3b: Returned dog to Mamamu</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x3b</firstbit>
+    </item>
+    <item>
+      <name>0x3c: Saved Zelda from Vire</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x3c</firstbit>
+    </item>
+    <item>
+      <name>0x3d: Link doesn't fall from sky upon starting file</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x3d</firstbit>
+      <hint>If flag 0x21 (Pregame intro done) is set, this is ignored.</hint>
+    </item>
+    <item>
+      <name>0x3e: Saved present maku tree</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x3e</firstbit>
+      <hint>This enables maku tree hints on the present map.</hint>
+    </item>
+    <item>
+      <name>0x3f: Saved past maku tree</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x3f</firstbit>
+      <hint>This enables maku tree hints on the past map.</hint>
+    </item>
+    <item>
+      <name>0x40: Ralph entered timeportal</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x40</firstbit>
+    </item>
+    <item>
+      <name>0x41: Entered the past for the first time</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x41</firstbit>
+      <hint>Disables the cutscene with the surprised npc.</hint>
+    </item>
+    <item>
+      <name>0x42: Companion lost in forest</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x42</firstbit>
+      <hint>Set after talking to the fairy on the way back from nuun highlands.</hint>
+    </item>
+    <item>
+      <name>0x43: Talked to Cheval</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x43</firstbit>
+    </item>
+    <item>
+      <name>0x44: Met Maple in the past for the first time</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x44</firstbit>
+      <hint>Maple says something about "coming through a weird tunnel" the first time you meet in the past.</hint>
+    </item>
+    <item>
+      <name>0x45: Ralph entered black tower</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x45</firstbit>
+    </item>
+    <item>
+      <name>0x46: Got satchel upgrade from Tingle</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x46</firstbit>
+    </item>
+    <item>
+      <name>0x47: Unused?</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x47</firstbit>
+    </item>
+    <item>
+      <name>0x48</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x48</firstbit>
+    </item>
+    <item>
+      <name>0x49</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x49</firstbit>
+    </item>
+    <item>
+      <name>0x4a</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x4a</firstbit>
+    </item>
+    <item>
+      <name>0x4b</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x4b</firstbit>
+    </item>
+    <item>
+      <name>0x4c</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x4c</firstbit>
+    </item>
+    <item>
+      <name>0x4d</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x4d</firstbit>
+    </item>
+    <item>
+      <name>0x4e</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x4e</firstbit>
+    </item>
+    <item>
+      <name>0x4f</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x4f</firstbit>
+    </item>
+    <item>
+      <name>0x50</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x50</firstbit>
+    </item>
+    <item>
+      <name>0x51</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x51</firstbit>
+    </item>
+    <item>
+      <name>0x52</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x52</firstbit>
+    </item>
+    <item>
+      <name>0x53</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x53</firstbit>
+    </item>
+    <item>
+      <name>0x54</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x54</firstbit>
+    </item>
+    <item>
+      <name>0x55</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x55</firstbit>
+    </item>
+    <item>
+      <name>0x56</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x56</firstbit>
+    </item>
+    <item>
+      <name>0x57</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x57</firstbit>
+    </item>
+    <item>
+      <name>0x58</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x58</firstbit>
+    </item>
+    <item>
+      <name>0x59</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x59</firstbit>
+    </item>
+    <item>
+      <name>0x5a</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x5a</firstbit>
+    </item>
+    <item>
+      <name>0x5b</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x5b</firstbit>
+    </item>
+    <item>
+      <name>0x5c</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x5c</firstbit>
+    </item>
+    <item>
+      <name>0x5d</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x5d</firstbit>
+    </item>
+    <item>
+      <name>0x5e</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x5e</firstbit>
+    </item>
+    <item>
+      <name>0x5f</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x5f</firstbit>
+    </item>
+    <item>
+      <name>0x60</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x60</firstbit>
+    </item>
+    <item>
+      <name>0x61</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x61</firstbit>
+    </item>
+    <item>
+      <name>0x62</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x62</firstbit>
+    </item>
+    <item>
+      <name>0x63</name>
+      <agesaddr>0xc6d0</agesaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0x63</firstbit>
+    </item>
+  </section>
+
+  <section name="Child"> <!-- TODO: document better -->
+    <item>
+      <name>Growth stage</name>
+      <agesaddr>0xc6e0</agesaddr>
+      <ssnsaddr>0xc6da</ssnsaddr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>Next growth stage</name>
+      <agesaddr>0xc6e1</agesaddr>
+      <ssnsaddr>0xc6db</ssnsaddr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>Named baby</name>
+      <agesaddr>0xc6e2</agesaddr>
+      <ssnsaddr>0xc6dc</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>0</firstbit>
+    </item>
+    <item>
+      <name>Gave money for doctor</name>
+      <agesaddr>0xc6e2</agesaddr>
+      <ssnsaddr>0xc6dc</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>1</firstbit>
+    </item>
+    <item>
+      <name>Gave advice on how to sleep</name>
+      <agesaddr>0xc6e2</agesaddr>
+      <ssnsaddr>0xc6dc</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>2</firstbit>
+    </item>
+    <item>
+      <name>Told Blossom what kind of child you were</name>
+      <agesaddr>0xc6e2</agesaddr>
+      <ssnsaddr>0xc6dc</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>3</firstbit>
+    </item>
+    <item>
+      <name>Answered child's question (stage 6)</name>
+      <agesaddr>0xc6e2</agesaddr>
+      <ssnsaddr>0xc6dc</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>4</firstbit>
+    </item>
+    <item>
+      <name>Stage 8 done</name>
+      <agesaddr>0xc6e2</agesaddr>
+      <ssnsaddr>0xc6dc</ssnsaddr>
+      <datatype>Bit</datatype>
+      <firstbit>5</firstbit>
+      <hint>Answered question / gave money / etc.</hint>
+    </item>
+    <item>
+      <name>Stage 8 response</name>
+      <agesaddr>0xc6e3</agesaddr>
+      <ssnsaddr>0xc6dd</ssnsaddr>
+      <datatype>Byte</datatype>
+      <hint>Link's response to "stage 8" (ie. love or courage).</hint>
+    </item>
+    <item>
+      <name>Personality</name>
+      <agesaddr>0xc6e4</agesaddr>
+      <ssnsaddr>0xc6de</ssnsaddr>
+      <datatype>Byte</datatype>
+      <hint>0-2 for stages 4-6, 0-3 for stages 7-9.</hint>
+    </item>
+    <item>
+      <name>c6df (unused in ages?)</name> <!-- TODO -->
+      <agesaddr>0xc6e5</agesaddr>
+      <ssnsaddr>0xc6df</ssnsaddr>
+      <datatype>Byte</datatype>
+    </item>
+  </section>
+
+  <section name="Misc"> <!-- TODO: review entire section -->
+    <item>
+      <name>c6e0</name>
+      <ssnsaddr>0xc6e0</ssnsaddr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>Inserted Jewels</name>
+      <ssnsaddr>0xc6e1</ssnsaddr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>c6e2</name>
+      <ssnsaddr>0xc6e2</ssnsaddr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>c6e3</name>
+      <ssnsaddr>0xc6e3</ssnsaddr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>c6e4</name>
+      <ssnsaddr>0xc6e4</ssnsaddr>
+      <datatype>Byte</datatype>
+    </item>
+
+    <item>
+      <name>Maku tree text (present)</name>
+      <agesaddr>0xc6e6</agesaddr>
+      <ssnsaddr>0xc6e5</ssnsaddr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>Maku tree text (past)</name>
+      <agesaddr>0xc6e7</agesaddr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>Maku tree state</name>
+      <agesaddr>0xc6e8</agesaddr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>Jabu water level</name>
+      <agesaddr>0xc6e9</agesaddr>
+      <datatype>Bits</datatype>
+      <firstbit>0</firstbit>
+      <lastbit>3</lastbit>
+    </item>
+    <item>
+      <name>Jabu switches pressed</name>
+      <agesaddr>0xc6e9</agesaddr>
+      <datatype>Bits</datatype>
+      <firstbit>7</firstbit>
+      <lastbit>4</lastbit>
+    </item>
+    <item>
+      <name>Wild Tokay game level</name>
+      <agesaddr>0xc6ea</agesaddr>
+      <datatype>Byte</datatype>
+      <max>4</max>
+    </item>
+    <item>
+      <name>Seed satchel x-position</name>
+      <agesaddr>0xc6eb</agesaddr>
+      <datatype>Byte</datatype>
+      <hint>Position of seed satchel when Maku Tree drops it</hint>
+    </item>
+    <item>
+      <name>Pirate ship room</name>
+      <agesaddr>0xc6ec</agesaddr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>Pirate ship Y</name>
+      <agesaddr>0xc6ed</agesaddr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>Pirate ship X</name>
+      <agesaddr>0xc6ee</agesaddr>
+      <datatype>Byte</datatype>
+    </item>
+    <item>
+      <name>Pirate ship angle</name>
+      <agesaddr>0xc6ef</agesaddr>
+      <datatype>Byte</datatype>
+    </item>
+  </section>
+</all>

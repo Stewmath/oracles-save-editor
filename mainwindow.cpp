@@ -46,13 +46,20 @@ void MainWindow::setupLayout() {
     assert(saveFile != NULL);
 
     XmlParser parser(":/data/ages.xml");
-    EditableItemWindow *window = new EditableItemWindow(this, saveFile, parser.getEditableItems(saveFile));
-    editableItemWindows.push_back(window);
 
-    QScrollArea *scrollArea = new QScrollArea();
-    scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    scrollArea->setWidget(window);
-    setCentralWidget(scrollArea);
+    ui->tabWidget->removeTab(0);
+    ui->tabWidget->removeTab(0);
+
+    for (const EditableItemSection &section : parser.getEditableItems(saveFile)) {
+        EditableItemWindow *window = new EditableItemWindow(this, saveFile, section.items);
+        editableItemWindows.push_back(window);
+
+        QScrollArea *scrollArea = new QScrollArea();
+        scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        scrollArea->setWidget(window);
+
+        ui->tabWidget->addTab(scrollArea, section.name);
+    }
 }
 
 void MainWindow::save() {

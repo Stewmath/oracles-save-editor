@@ -7,25 +7,23 @@ XmlParser::XmlParser(QString filename)
     this->filename = filename;
 }
 
-QVector<EditableItem> XmlParser::getEditableItems(SaveFile *saveFile) {
+QVector<EditableItemSection> XmlParser::getEditableItems(SaveFile *saveFile) {
     QFile file(filename);
     file.open(QIODevice::ReadOnly | QIODevice::Text);
 
     QXmlStreamReader xml(file.readAll());
-    QVector<EditableItem> items;
+
+    QVector<EditableItemSection> sections;
 
     QString currentElement;
+    EditableItemSection currentSection = EditableItemSection();
     EditableItem currentItem(saveFile);
-    currentItem.name = "INVALID";
 
     while (!xml.atEnd()) {
         xml.readNext();
         QString type = xml.tokenString();
-        QString name = "", text = "";
-        if (xml.name().string() != nullptr)
-                name = QString(xml.name().unicode(), xml.name().size());
-        if (xml.text().string() != nullptr)
-                text = QString(xml.text().unicode(), xml.text().size());
+        QString name = xml.name().toString();
+        QString text = xml.text().toString();
 
         QTextStream(stdout) << type << ", " << name << ", " << text << endl;
 
@@ -33,10 +31,13 @@ QVector<EditableItem> XmlParser::getEditableItems(SaveFile *saveFile) {
             currentElement = name;
             if (currentElement == "item")
                 currentItem.name = "<UNNAMED>";
+            else if (currentElement == "section") {
+                currentSection.name = xml.attributes().value("name").toString();
+            }
         }
         else if (type == "Characters") {
             if (currentElement == "name") {
-                assert(currentItem.name != "INVALID");
+                assert(currentItem.name != "");
                 currentItem.name = text;
             }
             else if (currentElement == "addr") {
@@ -52,13 +53,21 @@ QVector<EditableItem> XmlParser::getEditableItems(SaveFile *saveFile) {
                 currentItem.dataType = EditableItem::DataType(EditableItem::DataTypeStrings.indexOf(text));
             }
             else if (currentElement == "max") {
-                currentItem.maxVal = text.toInt();
+                currentItem.maxVal = Helper::parseInt(text);
             }
             else if (currentElement == "firstbit") {
-                currentItem.firstBit = text.toInt();
+                currentItem.firstBit = Helper::parseInt(text);
+
+                while (currentItem.firstBit >= 8) {
+                    currentItem.firstBit -= 8;
+                    currentItem.address++;
+                }
+
+                if (currentItem.lastBit == -1)
+                    currentItem.lastBit = currentItem.firstBit;
             }
             else if (currentElement == "lastbit") {
-                currentItem.lastBit = text.toInt();
+                currentItem.lastBit = Helper::parseInt(text);
             }
             else if (currentElement == "hint") {
                 currentItem.hint = text;
@@ -66,10 +75,13 @@ QVector<EditableItem> XmlParser::getEditableItems(SaveFile *saveFile) {
         }
         else if (type == "EndElement") {
             if (name == "item" && currentItem.address != -1) {
-                assert(currentItem.name != "INVALID");
-                items.push_back(currentItem);
+                assert(currentItem.name != "");
+                currentSection.items.push_back(currentItem);
                 currentItem = EditableItem(saveFile);
-                currentItem.name = "INVALID";
+            }
+            else if (name == "section") {
+                sections.push_back(currentSection);
+                currentSection = EditableItemSection();
             }
             currentElement = "";
         }
@@ -80,5 +92,5 @@ QVector<EditableItem> XmlParser::getEditableItems(SaveFile *saveFile) {
 
     file.close();
 
-    return items;
+    return sections;
 }

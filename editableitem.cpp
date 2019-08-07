@@ -12,7 +12,7 @@ const QVector<QString> EditableItem::DataTypeStrings = {
     "Byte BCD",
     "Word BCD",
     "String",
-    "Bool",
+    "Bit",
     "Bits",
 };
 
@@ -33,11 +33,9 @@ int EditableItem::getIntValue() {
         return Helper::bcdToInt(saveFile->getByte(addr), getMaximum()); // TODO: check for format error
     case DATATYPE_WORD_BCD:
         return Helper::bcdToInt(saveFile->getWord(addr), getMaximum()); // TODO: check for format error
-    case DATATYPE_BOOL:
-        val = saveFile->getByte(addr);
-        assert(val < 2); // TODO: check for format error properly
-        return val;
+    case DATATYPE_BIT:
     case DATATYPE_BITS:
+        assert(firstBit != -1 && lastBit != -1);
         return (saveFile->getByte(addr) & getBitmask()) >> firstBit;
     default:
         assert(false);
@@ -56,7 +54,7 @@ int EditableItem::getMaximum() {
         return 99;
     case DATATYPE_WORD_BCD:
         return 9999;
-    case DATATYPE_BOOL:
+    case DATATYPE_BIT:
         return 1;
     case DATATYPE_BITS:
         return (1<<(lastBit-firstBit+1))-1;
@@ -89,9 +87,10 @@ void EditableItem::save() {
         saveFile->setWord(addr, Helper::intToBcd(val));
         break;
     }
-    case DATATYPE_BOOL: {
+    case DATATYPE_BIT: {
         uint8_t val = static_cast<QCheckBox*>(linkedWidget)->checkState() == Qt::Checked ? 1 : 0;
-        saveFile->setByte(addr, val);
+        uint8_t oldVal = saveFile->getByte(addr) & ~getBitmask();
+        saveFile->setByte(addr, (val<<firstBit) | oldVal);
         break;
     }
     case DATATYPE_BITS: {

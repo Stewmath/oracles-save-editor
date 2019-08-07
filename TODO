@@ -1,0 +1,8 @@
+* Select files
+* Detect invalid files, create new files
+* Read rooms from rom for better room flag editing
+    * Also use this for:
+        * Link spawn
+        * Companion spawn
+        * Time portal
+        * Pirate ship

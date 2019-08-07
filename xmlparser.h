@@ -10,7 +10,7 @@ class XmlParser
 public:
     XmlParser(QString filename);
 
-    QVector<EditableItem> getEditableItems(SaveFile *saveFile);
+    QVector<EditableItemSection> getEditableItems(SaveFile *saveFile);
 
 private:
     QString filename;

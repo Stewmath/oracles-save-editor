@@ -33,7 +33,7 @@ EditableItemWindow::EditableItemWindow(QWidget *parent, SaveFile *saveFile, QVec
             field = spinBox;
             break;
         }
-        case EditableItem::DATATYPE_BOOL: {
+        case EditableItem::DATATYPE_BIT: {
             QCheckBox *checkBox = new QCheckBox(window);
             checkBox->setCheckState(item.getIntValue() != 0 ? Qt::Checked : Qt::Unchecked);
             field = checkBox;

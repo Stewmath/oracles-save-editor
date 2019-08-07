@@ -15,7 +15,7 @@ public:
         DATATYPE_BYTE_BCD,
         DATATYPE_WORD_BCD,
         DATATYPE_STRING,
-        DATATYPE_BOOL,
+        DATATYPE_BIT,
         DATATYPE_BITS,
     };
 
@@ -38,13 +38,18 @@ public:
     int address = -1;
     DataType dataType = DATATYPE_INVALID;
     int maxVal = -1;
-    int firstBit, lastBit; // For DATATYPE_BITS only
+    int firstBit = -1, lastBit = -1; // For DATATYPE_BITS only
     QString hint;
 
     QWidget *linkedWidget = nullptr;
 
 private:
     SaveFile *saveFile;
+};
+
+struct EditableItemSection {
+    QString name;
+    QVector<EditableItem> items;
 };
 
 #endif // EDITABLEITEM_H
